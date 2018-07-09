@@ -72,11 +72,7 @@ stage("Deploy") {
       export LD_LIBRARY_PATH=/usr/local/cuda/lib64
       make clean
       make release
-      printenv
       make -C docs html SPHINXOPTS=-W
-      EXIT_STATUS=\$?
-      printenv
-      exit \$EXIT_STATUS
       """
 
       if (env.BRANCH_NAME.startsWith("PR-")) {
